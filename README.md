@@ -94,7 +94,7 @@ Then we add the text that we transform and rotate<br>
 (slide 6.4)<br>
 Take a picture, and add it too.<br>
 (slide 6.5)<br>
-Cool, we have a nice static picture. But I want to add some dynamic.
+Cool, we have a nice static picture. But I want to add some dynamic.<br>
 (slide 6.6)<br>
 Pattern to create animation is next:
   - Remember all the shapes on the canvas

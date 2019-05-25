@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-markdown>
+				<textarea data-template>
+					## HTML5 CANVAS
+				</textarea>
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+						### WHAT IS CANVAS?
+						<br>
+
+						- HTML5 element, part of HTML5 API
+						- Used for drawing and animation directly in HTML,
+						with JavaScript scripting
+						- Uses nothing more than JavaScript and HTML - no plugins
+						- Created by Apple for dashboard widgets
+						- Now openly developed as a W3C spec
+				</textarea>
+			</section>
+			<section>
+				<section data-markdown>
+					<textarea data-template>
+									### WHAT CAN IT DO?
+									<br>
+			
+									- Draw shapes, images and text on the fly
+									- Respond to user input - mouse, keyboard, touch, etc.
+									- Animation without Flash
+									- Create interactive charts and graphs
+							</textarea>
+				</section>
+				<section>
+					<img src="img/line.png" alt="">
+					<img src="img/circle.png" alt="">
+					<img src="img/text.png" alt="">
+				</section>
+				<section>
+					<img src="img/gradient.png" alt="">
+				</section>
+				<section>
+					<h3> <a href="https://codepen.io/IP-Address/pen/zKaJNP">Image</a> </h3>
+					<img data-src="img/image.png">
+				</section>
+				<section>
+					<h3>Charts</h3>
+					<img data-src="img/graphic.png">
+				</section>
+				<section>
+					<a href="https://resovere.com">Site</a> with animation
+					<video>
+						<source data-src="./img/animation.mp4" type="video/mp4" />
+					</video>
+				</section>
+
+				<section>
+					<a href="https://christopherlis.com/projects/particle-surge">Responsive animation</a>
+					<video>
+						<source data-src="./img/respAnimation.mp4" type="video/mp4" />
+					</video>
+				</section>
+				<section>
+					Game <a href="https://agar.io">Agar.io</a>
+					<video>
+						<source data-src="./img/Agario.mp4" type="video/mp4" />
+					</video>
+				</section>
+
+			</section>
+
+			<section>
+				<h2>Browser support</h2>
+				<img data-src="img/caniuse.png" type="video/mp4" />
+			</section>
+			<section>
+				<section>
+					<h2>Getting started</h2>
+				</section>
+				<section>
+					<h4>Create HTML5 canvas tag</h4>
+					<pre><code data-trim data-noescape>
+					&lt;style&gt;
+					  canvas {
+					  margin: 20px;
+					  border: 2px solid green;
+					  }
+					&lt;/style&gt;
+					</code></pre>
+					<pre><code data-trim data-noescape>
+					 &lt;canvas id=&quot;canvas&quot; width=&quot;300px&quot; height=&quot;200px&quot;&gt;
+					   Your browser does not support cavas
+					 &lt;/canvas&gt;
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="img/empty.jpg">
+				</section>
+				<section>
+					<h3>Coordinates</h3>
+					<img data-src="img/coordinates.jpg">
+				</section>
+				<section>
+					<h3>Add background-image</h3>
+					<pre><code class="hljs" data-line-numbers="6">
+&lt;style&gt;
+  canvas {
+   margin: 20px;
+    border: 2px solid green;
+    background-image: url(setka.png)
+  }
+&lt;/style&gt;
+					</code></pre>
+				</section>
+				<section>
+					<h3>Canvas with background-image</h3>
+					<img data-src="img/setka.jpg">
+				</section>
+				<section>
+					<h3>Create context</h3>
+					<pre><code data-trim data-noescape>
+						const canvas = document.getElementById('canvas')
+						const ctx = canvas.getContext("2d");
+					</code></pre>
+				</section>
+				<section>
+					<h3>2D context</h3>
+					<img data-src="img/context.jpg">
+				</section>
+				<section>
+					<pre><code class="hljs" data-line-numbers="5,6">
+const canvas = document.getElementById('canvas')
+const ctx = canvas.getContext("2d");
+
+ctx.fillRect(50, 50, 100, 100);
+// ctx.fillRect(x, y, width, height);
+					</code></pre>
+					<img data-src="img/rectangle.jpg">
+				</section>
+				<section>
+					<h3>draw line</h3>
+					<pre><code data-trim data-noescape>
+ctx.beginPath(); //set up to draw a path
+ctx.moveTo(200, 50); // move to the start position (x,y)
+ctx.lineTo(250, 150); // set the end (x,y)
+ctx.stroke(); // draw the line
+					</code></pre>
+					<img data-src="img/rectLine.jpg">
+				</section>
+				<section>
+					<pre><code data-line-numbers="2,6,8">
+ctx.fillStyle = '#FF0000'
+ctx.fillRect(50, 50, 100, 100);
+// ctx.fillRect(x, y, width, height);
+
+ctx.strokeStyle = '#00FF00'
+ctx.beginPath(); //set up to draw a path
+ctx.lineWidth = 15;
+ctx.moveTo(200, 50); // move to the start position (x,y)
+ctx.lineTo(250, 150); // set the end (x,y)
+ctx.stroke(); // draw the line
+					</code></pre>
+					<img data-src="img/colorful.jpg">
+				</section>
+
+				<section>
+					<h3>Clear the canvas for redrawing</h3>
+					<br>
+					<pre><code data-trim data-noescape>
+					  ctx.clearRect(0, 0, canvas.width, canvas.height);
+					</code></pre>
+					<img data-src="img/setka.jpg">
+				</section>
+			</section>
+			<!-- ------------------------------------------------------------------------------------------ -->
+			<section>
+				<section>
+					<h4>First step</h3>
+						<img data-src="img/strokeCircle.png">
+				</section>
+				<section>
+					<h4>Second step</h3>
+						<img data-src="img/fillCircle.jpg">
+				</section>
+				<section>
+					<h4>Third step</h3>
+						<img data-src="img/addtext.jpg">
+				</section>
+				<section>
+					<h4>Fourth step</h4>
+					<img data-src="img/logoImage.jpg">
+				</section>
+				<section>
+					<h4>Fifth step</h4>
+					<img data-src="img/RSS.jpg">
+				</section>
+				<section>
+					<h4>Workflow to animate canvas</h4>
+					<ol>
+						<li>Remember all the shapes on the canvas</li>
+						<li>Clear the canvas</li>
+						<li>Move them, transform them, and make them interact</li>
+						<li>Redraw shapes with new position</li>
+						<li>Loop through</li>
+					</ol>
+				</section>
+
+				<section>
+
+					<head>
+						<meta charset="UTF-8">
+						<link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+						<style>
+							canvas {
+								margin: 20px;
+								border: 2px solid green;
+								background: #fff;
+							}
+
+							#image {
+								display: none;
+								width: 600px;
+							}
+						</style>
+					</head>
+
+					<body>
+						<img src="img/logo600.png" alt="" width="600" id="image">
+						<canvas id="canvas" width="600px" height="500px">Your browser not support canvas</canvas>
+						<script src="img/main.js"></script>
+					</body>
+				</section>
+			</section> <!-- ---------------------------------------------------------------------- -->
+			<section>
+				<h2>Thank you</h2>
+			</section>
+		</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true
+				}
+			]
+		});
+	</script>
+</body>
+
+</html>
